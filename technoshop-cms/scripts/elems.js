@@ -3,3 +3,4 @@ export const modal = document.querySelector('.modal');
 export const form = document.querySelector('.modal-content');
 export const preview = document.querySelector('.preview');
 export const image = document.getElementById('image');
+export const tableGoods = document.querySelector('.table-goods');

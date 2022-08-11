@@ -1,6 +1,8 @@
 import { modalBtn, modal } from './elems.js';
 import { modalController } from './modalController.js';
 import { previewController } from './previewController.js';
+import { tableController } from './tableController.js';
+
 
 modalController({
     modal, 
@@ -10,3 +12,4 @@ modalController({
 });
 
 previewController();
+tableController();
