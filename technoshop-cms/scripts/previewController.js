@@ -1,4 +1,4 @@
-import { form, preview } from "./elems.js"
+import { form, preview, image } from "./elems.js"
 import { toBase64 } from "./utils.js";
 
 const showPreview = (src) => {
@@ -6,7 +6,7 @@ const showPreview = (src) => {
   preview.src = src;
 }
 
-const hidePreview = (src) => {
+export const hidePreview = (src) => {
   preview.style.display = '';
   preview.src = '';
 }

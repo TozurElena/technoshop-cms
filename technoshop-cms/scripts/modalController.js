@@ -1,3 +1,5 @@
+import { form } from './elems.js'
+import { hidePreview } from './previewController.js';
 
 const openModal = (modal, classOpen) => {
   modal.classList.add(classOpen);
@@ -5,6 +7,8 @@ const openModal = (modal, classOpen) => {
 
 const closeModal = (modal, classOpen)=> {
   modal.classList.remove(classOpen);
+  form.reset(); //clear form
+  hidePreview();
 }
 
 export const modalController = ({
