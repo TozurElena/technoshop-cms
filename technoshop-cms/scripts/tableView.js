@@ -1,17 +1,18 @@
 // goods - товары
 
-import { tableGoods } from "./elems.js"
+import { tableGoods } from "./elems.js";
+import { currencyFormatRUB } from "./utils.js";
 
 export const tableRender = (goods) => {
   tableGoods.textContent = '';
 
   goods.forEach(({id, title, category, price}) => {
-    tableGoods.insertAdjacentHTML('afterend', `
-    <tr class="table-row table-goods-item" data-id="4836741835">
-            <td>4836741835</td>
-            <td>Умные часы Xiaomi Redmi Watch 2 Lite Global, слоновая кость</td>
-            <td>smartwatch</td>
-            <td class="text-end">4 990 &#8381;</td>
+    tableGoods.insertAdjacentHTML('beforeend', `
+    <tr class="table-row table-goods-item" data-id="${id}">
+            <td>${id}</td>
+            <td>${title}</td>
+            <td>${category}</td>
+            <td class="text-end">${currencyFormatRUB(price)}</td>
             <td class="d-flex">
               <button class="btn-table btn-delete">
                 <svg width="30" height="30">

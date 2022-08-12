@@ -13,3 +13,11 @@ export const toBase64 = (file) => {
     reader.readAsDataURL(file);
   })
 }
+// преобоазует price  в удобную форму
+export const currencyFormatRUB = (num) => {
+  return new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'RUB',
+    maximumFractionDigits: 0
+  }).format(num)
+}
