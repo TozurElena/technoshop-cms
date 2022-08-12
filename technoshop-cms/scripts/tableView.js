@@ -3,10 +3,7 @@
 import { tableGoods } from "./elems.js";
 import { currencyFormatRUB } from "./utils.js";
 
-export const tableRender = (goods) => {
-  tableGoods.textContent = '';
-
-  goods.forEach(({id, title, category, price}) => {
+const createRow = ({id, title, category, price}) => {
     tableGoods.insertAdjacentHTML('beforeend', `
     <tr class="table-row table-goods-item" data-id="${id}">
             <td>${id}</td>
@@ -22,5 +19,10 @@ export const tableRender = (goods) => {
             </td>
           </tr>
     `)
-  })
+  }
+
+export const tableRender = (goods) => {
+  tableGoods.textContent = '';
+
+  goods.forEach(createRow);
 }
