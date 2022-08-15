@@ -1,8 +1,10 @@
 import { category, form, modal } from "./elems.js";
 import { closeModal } from "./modalController.js";
-import { getCategory, postGoods } from "./serviceApi.js";
+import { getCategory, getGoods, postGoods } from "./serviceApi.js";
 import { renderRow } from "./tableView.js";
 import { toBase64 } from "./utils.js";
+import { showPreview } from "./previewController.js";
+import { API_URI } from "./const.js";
 
 
 const updateCategory = async() => {
@@ -44,4 +46,16 @@ export const formController = () => {
     renderRow(goods);
     closeModal(modal, 'd-block');
   })
+}
+
+// заполняем форму данными товара по id
+export const fillingForm = async (id) => {
+  const {title, category, description, display, price, image} = await getGoods(id);
+  form.title.value = title;
+  form.category.value = category;
+  form.description.value = description.join('\n');
+  form.display.value = display;
+  form.price.value = price;
+  form.imagesave.value = image;
+  showPreview(`${API_URI}${image}`)
 }
